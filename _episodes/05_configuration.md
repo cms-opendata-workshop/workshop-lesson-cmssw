@@ -81,7 +81,7 @@ process.MessageLogger.cerr.FwkReport.reportEvery = 5
 > {: .language-python}
 {: .challenge}
 
-Note that all we are doing is loading the MessageLogger module and changing just one parameter, the one in [this line](https://github.com/cms-sw/cmssw/blob/CMSSW_5_3_X/FWCore/MessageService/python/MessageLogger_cfi.py#L45), instead of going with the default value, which is one.
+Note that all we are doing is loading the MessageLogger module and changing just one parameter, the one in [this line](https://github.com/cms-sw/cmssw/blob/CMSSW_5_3_X/FWCore/MessageService/python/MessageLogger_cfi.py#L29), instead of going with the default value, which is one.
 
 For the next line
 
