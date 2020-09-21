@@ -47,4 +47,4 @@
 [training]: https://carpentries.github.io/instructor-training/
 [workshop-repo]: {{ site.workshop_repo }}
 [yaml]: http://yaml.org/
-[mattermost]: http://fixmemattermost
+[mattermost]: https://mattermost.web.cern.ch/cmsopendatatheo/channels/town-square

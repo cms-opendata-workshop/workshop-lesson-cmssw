@@ -1,14 +1,13 @@
 ---
 title: "Installation and Execution"
 teaching: 0
-exercises: 15
+exercises: 20
 questions:
 - "How do I install CMSSW?"
-- "How do I execute CMSSW?"
-- "How do I compile CMSSW software?"
+- "How do I compile and execute CMSSW?"
 objectives:
-- "Review the steps necessary to setup a CMSSW area"
-- "Learn how to compile CMSSW and find out about its executable"
+- "Review the steps necessary to setup a CMSSW area."
+- "Learn how to compile and execute CMSSW jobs."
 
 keypoints:
 - "A CMSSW area is not really installed but set up."
@@ -18,12 +17,21 @@ keypoints:
 
 ## Setting up your CMSSW area
 
-If you completed the lessons on [virtual machines](https://cms-opendata-workshop.github.io/workshop-lesson-virtualmachine/) or [Docker](https://cms-opendata-workshop.github.io/workshop-lesson-docker/) you already have a working CMSSW area.  You can start it over by either turning on your virtual machine and going to the right shell according to the [validation instructions](run-a-simple-demo-for-testing-and-validating) or, if using Docker, by starting the container:
+If you completed the lessons on [virtual machines](https://cms-opendata-workshop.github.io/workshop-lesson-virtualmachine/) or [Docker](https://cms-opendata-workshop.github.io/workshop-lesson-docker-preexercises/) you already have a working CMSSW area.  
 
-~~~
-docker start -i <theNameOfyourContainer>
-~~~
-{: .language-bash}
+- If you are using the VM:
+
+  - turn on your virtual machine and going to the right shell according to the [validation instructions](https://cms-opendata-workshop.github.io/workshop-lesson-virtualmachine/04-validation/#run-a-simple-demo-for-testing-and-validating):
+
+    ![Choose this shell](../fig/rightshell.png)
+
+- If you are using Docker:
+
+  - Start the container with:
+    ~~~
+    docker start -i <theNameOfyourContainer>
+    ~~~
+    {: .language-bash}
 
 Make sure you change directories to the `CMSSW_5_3_32/src` area; for instance, in Docker:
 
@@ -145,8 +153,7 @@ So, inevitably, the cmsRun executable needs a configuration file.  This configur
 
 ## Compilation
 
-You could also try to compile (**b**uild) the code.  We use `scram`, the release management tool used for CMSSW:
-
+We use scram, the release management tool used for CMSSW, to compile (**b**uild) the code:
 ~~~
 scram b
 ~~~
@@ -186,7 +193,7 @@ Note that scram only goes into the `Demo/DemoAnalyzer` package that we created l
 
 Your CMSSW environment comes with other executable scripts/tools that can be very useful.  An example of those is the `mkedanlzr` script that we use already to create the `DemoAnalyzer` package.  This script creates skeletons for EDAnalyzers that can later be modified or expanded.  Notice that this package, DemoAnalyzer, has a similar structure as any of the CMSSW packages we mentioned [before](../01-introduction/index.html#structure-and-architecture).
 
-One can find out about [other scripts](https://twiki.cern.ch/twiki/bin/view/CMSPublic/SWGuideSkeletonCodeGenerator?rev=15) like mkedanlzr by typing `mked` and hitting the <kbd>Tab</kbd> key:
+One can find out about [other scripts](https://twiki.cern.ch/twiki/bin/view/CMSPublic/SWGuideSkeletonCodeGenerator) like mkedanlzr by typing `mked` and hitting the <kbd>Tab</kbd> key:
 ~~~
 mked + Tab
 ~~~
@@ -199,7 +206,7 @@ mkedanlzr  mkedfltr   mkedlpr    mkedprod
 
 In this workshop, however, we will not be using those other ones.
 
-There are also additional scripts, like the [EDM utilities](https://twiki.cern.ch/twiki/bin/view/CMSPublic/WorkBookEdmUtilities?rev=21), which can be useful.
+There are also additional scripts, like the Event Data Model(EDM) [utilities](https://twiki.cern.ch/twiki/bin/view/CMSPublic/WorkBookEdmUtilities), the [hltGetConfiguration](https://twiki.cern.ch/twiki/bin/view/CMSPublic/SWGuideHltGetConfiguration) trigger [dumper](https://twiki.cern.ch/twiki/bin/view/CMSPublic/SWGuideLegacyGlobalHLT#Dumping_the_latest_configuration), or the [cmsDriver](https://twiki.cern.ch/twiki/bin/view/CMSPublic/SWGuideCmsDriver), which can be very useful.  We will talk a bit about these later in the workshop, but now let's check an example.
 
 > ## Finding the EventSize of a ROOT EDM file
 >

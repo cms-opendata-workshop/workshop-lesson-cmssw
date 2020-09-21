@@ -1,19 +1,21 @@
 ---
 title: "The Source"
-teaching: 0
-exercises: 0
+teaching: 10
+exercises: 30
 questions:
-- "What are the elements in the source of an EDAnalyzer"
+- "What are the elements of the source of an EDAnalyzer?"
+- "How do I modify the source to get additional information?"
 objectives:
-- "Learn the basic structure of the C++ implementation of an EDAnalyzer"
+- "Learn the basic structure of the C++ implementation of an EDAnalyzer."
+- "Learn the basics on how to modify the source in order to do perform analysis."
 keypoints:
 - "The C++ source file of an EDAnalyzer is taylored for particle physics analysis under the CMSSW Framework."
 - "This source file needs to be modified according to the analyzer needs"
 ---
 
-## The DemoAnalyzer.cc file
+## Playing with the DemoAnalyzer.cc file
 
-The `DemoAnalyzer.cc` file is the main file of the analyzer.  As it was mentioned, the default structure is always the same.  Let's look at what is inside using an editor like `vi`:
+The `DemoAnalyzer.cc` file is the main file of our EDAnalyzer.  As it was mentioned, the default structure is always the same.  Let's look at what is inside using an editor like `vi` ([here](https://www.thegeekdiary.com/basic-vi-commands-cheat-sheet/) you can find a good cheatsheet for that editor):
 
 ~~~
 vi Demo/DemoAnalyzer/src/DemoAnalyzer.cc
@@ -47,13 +49,18 @@ Something important to take into account is that you can learn a lot about the s
 > ## Including muon headers
 >
 > Let's pretend that we are interested in extracting the energy of all the muons in the event.  We would need to add the appropriate classes for this.  After quickly reviewing [this guide](https://cms-opendata-guide.web.cern.ch/analysis/selection/objects/), we conclude that we need to add these two header lines to our analyzer:
+>
 > ```
 > //classes to extract Muon information
 > #include "DataFormats/MuonReco/interface/Muon.h"
 > #include "DataFormats/MuonReco/interface/MuonFwd.h"
 > ```
 >
-> Let's also add the standard vector C++ library.
+> Let's add them at the end of the header section together with the standard vector C++ library:
+>
+> ```
+> #include<vector>
+> ```
 >
 > So our header section becomes:
 >
@@ -69,6 +76,7 @@ Something important to take into account is that you can learn a lot about the s
 > #include "FWCore/Framework/interface/MakerMacros.h"
 >
 > #include "FWCore/ParameterSet/interface/ParameterSet.h"
+>
 >
 > //classes to extract Muon information
 > #include "DataFormats/MuonReco/interface/Muon.h"
@@ -113,7 +121,13 @@ The first thing one notices is that our class inherits from the `edm::EDAnalyzer
 
 > ## Declaring info containers
 >
-> Let's add the declaration of a vector for our energy values.  This section becomes:
+> Let's add the declaration of a vector for our energy values:  
+>
+> ```
+> std::vector<float> muon_e;
+> ```
+>
+> This section becomes:
 >
 > ~~~
 > //
@@ -283,7 +297,7 @@ DemoAnalyzer::endLuminosityBlock(edm::LuminosityBlock const&, edm::EventSetup co
 ~~~
 {: .language-c++}
 
-For instance, any instructions placed inside the `beginRun` routine will be executed every time the Framework sees a new Run (a Run is determined by the start and stop of the acquisition of the CMS detector).  We will use the `beginJob` and `endJob` routines to book histograms and write output files.
+For instance, any instructions placed inside the `beginRun` routine will be executed every time the Framework sees a new Run (a Run is determined by the start and stop of the acquisition of the CMS detector).  During the workshop, we will use the `beginJob` and `endJob` routines to book histograms and write output files.
 
 > ## Let's compile
 >  

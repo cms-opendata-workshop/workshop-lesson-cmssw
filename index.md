@@ -20,7 +20,7 @@ permalink: index.html  # Is the only page that doesn't follow the pattern /:path
 > In order to complete this lesson you need
 > - An internet connection.
 > - A basic understanding of [UNIX shells](https://swcarpentry.github.io/shell-novice/).
-> - A working CMSSW setup in your own machine (after completing one of the two lessons, [Virtual Machine](https://cms-opendata-workshop.github.io/workshop-lesson-virtualmachine/) or [Docker](https://cms-opendata-workshop.github.io/workshop-lesson-docker/)).
+> - A working CMSSW setup in your own machine (after completing one of the two lessons, [Virtual Machine](https://cms-opendata-workshop.github.io/workshop-lesson-virtualmachine/) or [Docker](https://cms-opendata-workshop.github.io/workshop-lesson-docker-preexercises/)).
 {: .prereq}
 
 > ## Helpline

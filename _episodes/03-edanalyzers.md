@@ -1,6 +1,6 @@
 ---
 title: "EDAnalyzers"
-teaching: 5
+teaching: 7
 exercises: 0
 questions:
 - "What is an EDAnalyzer and what does it contain?"
