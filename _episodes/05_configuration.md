@@ -169,7 +169,7 @@ has to do with our recently created `DemoAnalyzer`.  This module is now just a *
 > > // ----------member data ---------------------------
 > > std::vector<float> muon_e;
 > > ~~~
-> > {: .language-c++}
+> > {: .language-cpp}
 > >
 > > Then we will have to read this InputTag from the configuration.  As it was noted above, this is done in the constructor.  It will become:
 > >
@@ -183,7 +183,7 @@ has to do with our recently created `DemoAnalyzer`.  This module is now just a *
 > >   muonInput = iConfig.getParameter<edm::InputTag>("InputCollection");
 > > }
 > > ~~~
-> > {: language-c++}
+> > {: language-cpp}
 > >
 > > Here we will be reading the `InputCollection` variable from configuration (which is of type `edm::InputTag`, which is [essentially a string](https://github.com/cms-sw/cmssw/blob/52ef6482b221be8c1516bcc6eab63015d4e1fb72/FWCore/Utilities/interface/InputTag.h#L15)) and will store it in the `muonInput` container.
 > >
@@ -218,7 +218,7 @@ has to do with our recently created `DemoAnalyzer`.  This module is now just a *
 > > //print the vector
 > >  . . .
 > > ~~~
-> > {: .language-c++}
+> > {: .language-cpp}
 > >
 > > Finally, let's change the `Demo/DemoAnalyzer/demoanalyzer_cfg.py` by replacing our empty module statement:
 > >

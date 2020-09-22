@@ -37,7 +37,7 @@ The first thing that you will see is a set of *includes*:
 
 #include "FWCore/ParameterSet/interface/ParameterSet.h"
 ~~~
-{: .language-c++}
+{: .language-cpp}
 
 These are the most basic *Framework* classes that are needed to mobilize the CMSSW machinery.  In particular, notice the `Event.h` class.  This class contains essentially all the *accessors* that are needed to extract information from *the Event*, i.e., from the particle collision.  Another important class is the `ParameterSet.h`.  This one will allow us to extract configuration parameters, which can be manipulated using the `Demo/DemoAnalyzer/demoanalyzer_cfg.py` python file.
 
@@ -84,7 +84,7 @@ Something important to take into account is that you can learn a lot about the s
 >
 > #include<vector>
 > ~~~
-> {: .language-c++}
+> {: .language-cpp}
 {: .challenge}
 
 Next, you will see the class declaration:
@@ -115,7 +115,7 @@ class DemoAnalyzer : public edm::EDAnalyzer {
       // ----------member data ---------------------------
 };
 ~~~
-{: .language-c++}
+{: .language-cpp}
 
 The first thing one notices is that our class inherits from the `edm::EDAnalyzer` class.  It follows the same structure as any class in C++.  The declaration of the methods reflect the functionality needed for particle physics analysis.  Their implementation are further below in the same file.
 
@@ -157,7 +157,7 @@ The first thing one notices is that our class inherits from the `edm::EDAnalyzer
 >      std::vector<float> muon_e; //energy values for muons in the event
 > };
 > ~~~
-> {: .language-c++}
+> {: .language-cpp}
 {: .challenge}
 
 
@@ -182,7 +182,7 @@ DemoAnalyzer::~DemoAnalyzer()
 
 }
 ~~~
-{: .language-c++}
+{: .language-cpp}
 
 Note that a `ParameterSet` object is passed to the constructor.  This is then the place where we will read any configuration we might end up implementing through our `Demo/DemoAnalyzer/demoanalyzer_cfg.py` python configuration file.
 
@@ -208,7 +208,7 @@ DemoAnalyzer::analyze(const edm::Event& iEvent, const edm::EventSetup& iSetup)
 #endif
 }
 ~~~
-{: .language-c++}
+{: .language-cpp}
 
 Anything that goes inside this routine will loop over all available events.  The CMSSW Framework will take care of that, so you do not really have to write a `for` loop to go over all events.  Note that an `edm::Event` object and a `edm::EventSetup` object are passed by default.  While from the Event we can extract information like physics objects, from the EventSetup we can get information like trigger prescales.
 
@@ -252,7 +252,7 @@ Anything that goes inside this routine will loop over all available events.  The
 > #endif
 > }
 > ~~~
-> {: .language-c++}
+> {: .language-cpp}
 {: .challenge}
 
 
@@ -295,7 +295,7 @@ DemoAnalyzer::endLuminosityBlock(edm::LuminosityBlock const&, edm::EventSetup co
 }
 
 ~~~
-{: .language-c++}
+{: .language-cpp}
 
 For instance, any instructions placed inside the `beginRun` routine will be executed every time the Framework sees a new Run (a Run is determined by the start and stop of the acquisition of the CMS detector).  During the workshop, we will use the `beginJob` and `endJob` routines to book histograms and write output files.
 
