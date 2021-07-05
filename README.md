@@ -1,3 +1,6 @@
+![](https://via.placeholder.com/15/ff0000/000000?text=+) **Warning:** This repository has been archived and [superseded](https://github.com/cms-opendata-workshop/workshop2021-lesson-cmssw); it is no longer maintained.
+
+
 # FIXME Lesson title
 
 [![Create a Slack Account with us](https://img.shields.io/badge/Create_Slack_Account-The_Carpentries-071159.svg)](https://swc-slack-invite.herokuapp.com/)
